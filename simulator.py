@@ -4,12 +4,8 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 import random
-from queue import Queue
 import sys
-from collections import namedtuple
 import math
-
-
 
 class MessageQueue:
     def __init__(self, totalTime, arrivalRate, dispatchRate, probList):
@@ -97,7 +93,7 @@ class MessageQueue:
                 "T'": self.clock,
                 "Ti": self.Ti,
                 "Zi": [i/self.clock for i in self.Ti],
-                "Tw": self.totalWaitTime/self.messagesDispatched,
+                "Tw": (self.totalWaitTime - self.totalServiceTime)/self.messagesDispatched,
                 "Ts": self.totalServiceTime/self.messagesDispatched,
                 "LambdaA": self.messagesDispatched/self.totalTime}
 
